@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_x="109dp"
         android:layout_y="278dp"
+        android:onClick="abrir"
         android:text="INICIAR" />
 
     <TextView

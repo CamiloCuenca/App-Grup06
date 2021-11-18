@@ -37,8 +37,8 @@
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="45dp"
-        android:layout_y="113dp"
+        android:layout_x="47dp"
+        android:layout_y="95dp"
         android:ems="10"
         android:hint="Usuario o Correo"
         android:inputType="textPersonName" />
@@ -47,8 +47,8 @@
         android:id="@+id/textView7"
         android:layout_width="256dp"
         android:layout_height="46dp"
-        android:layout_x="94dp"
-        android:layout_y="30dp"
+        android:layout_x="131dp"
+        android:layout_y="19dp"
         android:text="EJESM"
         android:textSize="36sp" />
 
@@ -60,4 +60,5 @@
         android:layout_y="358dp"
         android:text="Registrate."
         android:autoLink="all"/>
+
 </AbsoluteLayout>

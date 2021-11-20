@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "308215092841",
+    "project_id": "appgrupo06-345ba",
+    "storage_bucket": "appgrupo06-345ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308215092841:android:6ea103afc4daebdd5f34f8",
+        "android_client_info": {
+          "package_name": "com.example.ejesm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308215092841-3tec1p2copc7d2t0jphau5kh764i4icp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbJp1q1hQNKNmdLTdDXR6n9U_3SICrEcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308215092841-3tec1p2copc7d2t0jphau5kh764i4icp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

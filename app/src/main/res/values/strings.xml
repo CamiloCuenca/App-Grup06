@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Ejesm</string>
+    <string name="iniciar">INICIAR</string>
+    <string name="registrarse">REGISTRARSE</string>
+    <string name="cancelar">CANCELAR</string>
 
 
 </resources>

@@ -6,75 +6,86 @@
     android:layout_height="match_parent"
     tools:context=".Registro">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="256dp"
-        android:layout_height="46dp"
-        android:layout_x="92dp"
-        android:layout_y="10dp"
-        android:text="EJESM"
-        android:textSize="36sp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="407dp"
+        android:layout_height="730dp"
+        android:layout_x="3dp"
+        android:layout_y="0dp">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="49dp"
-        android:layout_y="73dp"
-        android:ems="10"
-        android:hint="usuario"
-        android:inputType="textPersonName" />
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="239dp"
+            android:layout_height="124dp"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.061" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="47dp"
-        android:layout_y="138dp"
-        android:ems="10"
-        android:hint="Introduzca una contraseña"
-        android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/ET_Correo"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Correo Elcetronico"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+            app:layout_constraintVertical_bias="0.116" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="45dp"
-        android:layout_y="206dp"
-        android:ems="10"
-        android:hint="Confirme Contraseña"
-        android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/ET_Contraseña"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ET_Correo"
+            app:layout_constraintVertical_bias="0.116" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="40dp"
-        android:layout_y="273dp"
-        android:text="Registrarse" />
+        <EditText
+            android:id="@+id/ET_Contraseña_confirmada"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Confirmar Contraseña"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ET_Contraseña"
+            app:layout_constraintVertical_bias="0.116" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="185dp"
-        android:layout_y="272dp"
-        android:text="Cancelar" />
+        <Button
+            android:id="@+id/CancelarBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancelar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.832"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ET_Contraseña_confirmada"
+            app:layout_constraintVertical_bias="0.218" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="26dp"
-        android:layout_y="334dp"
-        android:text="Registrese con" />
+        <Button
+            android:id="@+id/RegistarBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registrarse"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.191"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ET_Contraseña_confirmada"
+            app:layout_constraintVertical_bias="0.218" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="137dp"
-        android:layout_y="330dp"
-        app:srcCompat="@mipmap/facebook_109862" />
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </AbsoluteLayout>

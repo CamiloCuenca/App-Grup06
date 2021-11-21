@@ -9,8 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="414dp"
         android:layout_height="730dp"
-        android:layout_x="0dp"
-        android:layout_y="0dp">
+        android:layout_x="2dp"
+        android:layout_y="1dp">
 
         <ImageView
             android:id="@+id/imgLogo"
@@ -23,19 +23,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.061" />
 
-        <EditText
-            android:id="@+id/ET_CorreoELectronico"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Correo Elcetronico"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-            app:layout_constraintVertical_bias="0.151" />
 
         <Button
             android:id="@+id/IniciarBTN"
@@ -45,20 +32,57 @@
             android:text="@string/iniciar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.731"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ET_ContraseñaLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/ET_ContraseñaLogin"
+            app:layout_constraintVertical_bias="0.427" />
+
+
+        <Button
+            android:id="@+id/registroBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registrar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.275"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ET_ContraseñaLogin"
+            app:layout_constraintVertical_bias="0.22" />
+
+
+        <EditText
+            android:id="@+id/ET_CorreoELectronico"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Correo Elcetronico"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+            app:layout_constraintVertical_bias="0.151" />
+
 
         <EditText
             android:id="@+id/ET_ContraseñaLogin"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
+            android:layout_width="216dp"
+            android:layout_height="57dp"
             android:ems="10"
             android:hint="Contraseña"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ET_CorreoELectronico"
-            app:layout_constraintVertical_bias="0.116" />
+
+            app:layout_constraintVertical_bias="0.138" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </AbsoluteLayout>

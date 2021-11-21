@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:layout_gravity="center"
+    android:background="#fff">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:text="@string/Nosesion"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+      <com.airbnb.lottie.LottieAnimationView
+          android:layout_marginTop="10dp"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_gravity="center"
+          app:lottie_imageAssetsFolder="assets"
+          app:lottie_fileName="34175-sad-face.json"
+          app:lottie_autoPlay="true"/>
+
+
+        <Button
+            android:id="@+id/Ok_no_inicio_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/teal_200"
+            android:text="@string/Ok_no_inicio"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/teal_200" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

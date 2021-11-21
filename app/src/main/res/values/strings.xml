@@ -3,6 +3,9 @@
     <string name="iniciar">INICIAR</string>
     <string name="registrarse">REGISTRARSE</string>
     <string name="cancelar">CANCELAR</string>
+    <string name="registrar">Registrar</string>
+    <string name="Nosesion">No se pudo iniciar sesión, intente de nuevo (Revise correo o contraseña)-Verifique su conexión a internet</string>
+    <string name="Ok_no_inicio">Entendido</string>
 
 
 </resources>

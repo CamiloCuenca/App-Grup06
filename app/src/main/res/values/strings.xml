@@ -6,6 +6,7 @@
     <string name="registrar">Registrar</string>
     <string name="Nosesion">No se pudo iniciar sesión, intente de nuevo (Revise correo o contraseña)-Verifique su conexión a internet</string>
     <string name="Ok_no_inicio">Entendido</string>
+    <string name="txtLoad">¡Bienvenido a EJESM!</string>
 
 
 </resources>

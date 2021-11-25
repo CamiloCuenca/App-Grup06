@@ -91,40 +91,40 @@ public class Registro extends AppCompatActivity {
     }
 
     private void Registrar(String correo, String contraseña) {
-         firebaseAuth.createUserWithEmailAndPassword(correo,contraseña)
-                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                     @Override
-                     public void onComplete(@NonNull Task<AuthResult> task) {
-                         if (task.isSuccessful()) {
-                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                             assert user != null;
-                             String uid = user.getUid();
-                             String correo = ET_Correo.getText().toString();
-                             String contraseña = ET_Contraseña.getText().toString();
-                             String nombre = ET_Nombre.getText().toString();
+        firebaseAuth.createUserWithEmailAndPassword(correo,contraseña)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            assert user != null;
+                            String uid = user.getUid();
+                            String correo = ET_Correo.getText().toString();
+                            String contraseña = ET_Contraseña.getText().toString();
+                            String nombre = ET_Nombre.getText().toString();
 
-                             HashMap<Object, String> DatosUsuario = new HashMap<>();
-                             DatosUsuario.put("uid", uid);
-                             DatosUsuario.put("correo", correo);
-                             DatosUsuario.put("contraseña", contraseña);
+                            HashMap<Object, String> DatosUsuario = new HashMap<>();
+                            DatosUsuario.put("uid", uid);
+                            DatosUsuario.put("correo", correo);
+                            DatosUsuario.put("contraseña", contraseña);
 
-                             FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-                             DatabaseReference reference = database.getReference("AppGrupo06");
+                            DatabaseReference reference = database.getReference("AppGrupo06");
 
-                             reference.child(uid).setValue(DatosUsuario);
-                             Toast.makeText(Registro.this, "Se registró exitosamente", Toast.LENGTH_SHORT).show();
-                             startActivity(new Intent(Registro.this,MainActivity.class));
-                         } else {
-                             Toast.makeText(Registro.this, "Algo ha salido mal", Toast.LENGTH_SHORT).show();
-                         }
-                     }
-                 }).addOnFailureListener(new OnFailureListener() {
-             @Override
-             public void onFailure(@NonNull Exception e) {
-                 Toast.makeText(Registro.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-             }
-         });
+                            reference.child(uid).setValue(DatosUsuario);
+                            Toast.makeText(Registro.this, "Se registró exitosamente", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Registro.this,MainActivity.class));
+                        } else {
+                            Toast.makeText(Registro.this, "Algo ha salido mal", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(Registro.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

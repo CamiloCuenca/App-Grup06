@@ -14,23 +14,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     Button IniciarBTN , registroBTN;
     EditText ET_CorreoELectronico ,ET_ContraseñaLogin;
+    AwesomeValidation  awesomeValidation;
+    FirebaseAuth firebaseAuth;
 
 
-    private FirebaseAuth firebaseAuth;
-    private ProgressDialog progressDialog;
-
-    Dialog dialog;
 
 
     @Override
@@ -43,118 +44,60 @@ public class MainActivity extends AppCompatActivity {
         ET_CorreoELectronico = findViewById(R.id.ET_CorreoELectronico);
         ET_ContraseñaLogin = findViewById(R.id.ET_ContraseñaLogin);
         firebaseAuth = FirebaseAuth.getInstance();
-        progressDialog = new ProgressDialog(MainActivity.this);
-        dialog = new Dialog(MainActivity.this);
-
-
-
-
-        ActionBar actionBar = getSupportActionBar();
-        assert  actionBar != null;
-        actionBar.setTitle("Login");
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-
-
-
-
-        IniciarBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String correo = ET_CorreoELectronico.getText().toString();
-                String contraseña = ET_ContraseñaLogin.getText().toString();
-
-                if(!Patterns.EMAIL_ADDRESS.matcher(correo).matches()){
-                    ET_CorreoELectronico.setError("Correo invalido");
-                    ET_CorreoELectronico.setFocusable(true);
-                }
-                else if (contraseña.length()<6){
-                    ET_ContraseñaLogin.setError("La contraseña debe se mayor o igual a 6");
-                    ET_ContraseñaLogin.setFocusable(true);
-                }
-                else
-                {
-                 LOGINUSUARIO(correo,contraseña);
-                }
-
-
-            }
-        });
-
-
-
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation.addValidation(this, R.id.ET_CorreoELectronico, Patterns.EMAIL_ADDRESS, R.string.invalid_mail);
+        awesomeValidation.addValidation(this, R.id.ET_Nombre, ".{6,}", R.string.invalid_name);
+        awesomeValidation.addValidation(this, R.id.ET_ContraseñaLogin, ".{6,}", R.string.invalid_password);
 
         registroBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,
-                        Registro.class));
+                Intent i = new Intent(MainActivity.this,Registro.class);
+                startActivity(i);
             }
         });
 
-
-
-    }
-
-    private void LOGINUSUARIO(String correo, String contraseña) {
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-        firebaseAuth.signInWithEmailAndPassword(correo, contraseña)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if(task.isSuccessful()){
-                            progressDialog.dismiss();
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            startActivity(new Intent(MainActivity.this,HomeActivity.class));
-                            assert user != null;
-                            Toast.makeText(MainActivity.this, "Hola Bienvenido(a)"+user.getEmail(), Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            progressDialog.dismiss();
-                            Dialogo_NO_Iniciado();
-                            //Toast.makeText(MainActivity.this, "Algo ha salido mal", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss();
-                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                
-            }
-        });
-
-    }
-
-
-    private void Dialogo_NO_Iniciado(){
-
-        Button Ok_no_inicio;
-        dialog.setContentView(R.layout.no_sesion);
-        Ok_no_inicio = dialog.findViewById(R.id.Ok_no_inicio_id);
-
-        Ok_no_inicio.setOnClickListener(new View.OnClickListener() {
+        IniciarBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+                if(awesomeValidation.validate()){
+
+                    String mail = ET_CorreoELectronico.getText().toString();
+                    String pass = ET_ContraseñaLogin.getText().toString();
+
+                    firebaseAuth.signInWithEmailAndPassword(mail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                               iraHome();
+                            }else {
+                                String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
+                                dameToastdeerror(errorCode);
+                            }
+
+
+
+                        }
+                    });
+
+                }
+
             }
         });
-        dialog.setCancelable(false);
-        dialog.show();
+
 
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
+    private void iraHome() {
+        Intent i = new Intent(this,HomeActivity.class);
+        i.putExtra("mail",ET_CorreoELectronico.getText().toString());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+
     }
 
-
-
+    private void dameToastdeerror(String errorCode) {
+    }
 }
+
+

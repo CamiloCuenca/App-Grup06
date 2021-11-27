@@ -4,8 +4,9 @@
     <string name="registrarse">REGISTRARSE</string>
     <string name="cancelar">CANCELAR</string>
     <string name="registrar">Registrar</string>
-    <string name="Nosesion">No se pudo iniciar sesión, intente de nuevo (Revise correo o contraseña)-Verifique su conexión a internet</string>
-    <string name="Ok_no_inicio">Entendido</string>
+    <string name="invalid_mail">Ingrese mail valido</string>
+    <string name="invalid_name">Ingrese nombre mayor a 6 digitos</string>
+    <string name="invalid_password">Ingrese un password mayor a 6 digitos</string>
     <string name="txtLoad">¡Bienvenido a EJESM!</string>
 
 
